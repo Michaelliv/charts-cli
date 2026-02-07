@@ -1,0 +1,36 @@
+{
+	"color": [
+		"#dd6b66",
+		"#759aa0",
+		"#e69d87",
+		"#8dc1a9",
+		"#ea7e53",
+		"#eedd78",
+		"#73a373",
+		"#73b9bc",
+		"#7289ab",
+		"#91ca8c",
+		"#f49f42"
+	],
+	"backgroundColor": "#333333",
+	"textStyle": {},
+	"title": {
+		"textStyle": { "color": "#eeeeee" },
+		"subtextStyle": { "color": "#aaaaaa" }
+	},
+	"categoryAxis": {
+		"axisLine": { "lineStyle": { "color": "#eeeeee" } },
+		"axisTick": { "lineStyle": { "color": "#eeeeee" } },
+		"axisLabel": { "color": "#eeeeee" },
+		"splitLine": { "lineStyle": { "color": ["#555555"] } }
+	},
+	"valueAxis": {
+		"axisLine": { "lineStyle": { "color": "#eeeeee" } },
+		"axisTick": { "lineStyle": { "color": "#eeeeee" } },
+		"axisLabel": { "color": "#eeeeee" },
+		"splitLine": { "lineStyle": { "color": ["#555555"] } }
+	},
+	"legend": {
+		"textStyle": { "color": "#eeeeee" }
+	}
+}

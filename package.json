@@ -1,0 +1,46 @@
+{
+  "name": "charts-cli",
+  "version": "0.1.0",
+  "description": "Generate SVG/PNG charts from the command line — bar, line, pie, scatter, radar, and more",
+  "type": "module",
+  "bin": {
+    "charts": "./src/main.ts"
+  },
+  "files": [
+    "src/"
+  ],
+  "scripts": {
+    "dev": "bun run src/main.ts",
+    "lint": "biome check src/",
+    "format": "biome format --write src/"
+  },
+  "keywords": [
+    "chart",
+    "charts",
+    "svg",
+    "png",
+    "cli",
+    "bar-chart",
+    "line-chart",
+    "pie-chart",
+    "echarts",
+    "visualization",
+    "data-visualization"
+  ],
+  "author": "miclivs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelliv/charts-cli"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "echarts": "^5.5.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "bun-types": "^1.1.34"
+  }
+}
