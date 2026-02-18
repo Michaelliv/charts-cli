@@ -1,17 +1,38 @@
-import type { Command } from "commander";
 import * as path from "node:path";
+import type { Command } from "commander";
 import { error } from "../output.js";
 
 const SCHEMA_DIR = path.resolve(import.meta.dir, "../schemas/generated");
 
 const SERIES_TYPES = [
-	"bar", "line", "pie", "scatter", "radar", "funnel",
-	"gauge", "treemap", "boxplot", "heatmap", "candlestick", "sankey",
+	"bar",
+	"line",
+	"pie",
+	"scatter",
+	"radar",
+	"funnel",
+	"gauge",
+	"treemap",
+	"boxplot",
+	"heatmap",
+	"candlestick",
+	"sankey",
 ];
 
 const COMPONENT_TYPES = [
-	"title", "tooltip", "grid", "xAxis", "yAxis", "legend",
-	"dataZoom", "visualMap", "toolbox", "dataset", "radar-coord", "polar", "geo",
+	"title",
+	"tooltip",
+	"grid",
+	"xAxis",
+	"yAxis",
+	"legend",
+	"dataZoom",
+	"visualMap",
+	"toolbox",
+	"dataset",
+	"radar-coord",
+	"polar",
+	"geo",
 ];
 
 const ALL_TYPES = [...SERIES_TYPES, ...COMPONENT_TYPES];

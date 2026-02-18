@@ -1,11 +1,11 @@
 #!/usr/bin/env bun
+import * as path from "node:path";
 /**
  * Generate compact JSON schemas from ECharts TypeScript types.
  * Uses the TypeScript compiler API directly to walk types and extract
  * property names + basic type info — no $ref, no transitive resolution.
  */
 import * as ts from "typescript";
-import * as path from "node:path";
 
 const TYPES_FILE = path.resolve(import.meta.dir, "echarts-types.ts");
 const OUT_DIR = path.resolve(import.meta.dir, "generated");
@@ -51,8 +51,6 @@ interface SimpleSchema {
 	anyOf?: SimpleSchema[];
 }
 
-
-
 /** Check if a type is primitive (string, number, boolean) or a string/number literal */
 function isPrimitive(type: ts.Type): boolean {
 	const flags = type.getFlags();
@@ -80,9 +78,28 @@ function primitiveTypeName(type: ts.Type): string {
 }
 
 /** Known wrapper object method names to detect String.prototype, Number.prototype etc. */
-const WRAPPER_METHODS = new Set(["toString", "valueOf", "charAt", "charCodeAt", "concat", "indexOf",
-	"lastIndexOf", "localeCompare", "match", "replace", "search", "slice", "split", "substring",
-	"toLowerCase", "toUpperCase", "trim", "toFixed", "toPrecision", "toExponential"]);
+const WRAPPER_METHODS = new Set([
+	"toString",
+	"valueOf",
+	"charAt",
+	"charCodeAt",
+	"concat",
+	"indexOf",
+	"lastIndexOf",
+	"localeCompare",
+	"match",
+	"replace",
+	"search",
+	"slice",
+	"split",
+	"substring",
+	"toLowerCase",
+	"toUpperCase",
+	"trim",
+	"toFixed",
+	"toPrecision",
+	"toExponential",
+]);
 
 function isWrapperObject(type: ts.Type): boolean {
 	const props = type.getProperties();
@@ -102,14 +119,18 @@ function summarizeType(type: ts.Type, checker: ts.TypeChecker): SimpleSchema {
 
 	// Handle unions at summary level
 	if (type.isUnion()) {
-		const realTypes = type.types.filter(t => !((t.getFlags()) & (ts.TypeFlags.Undefined | ts.TypeFlags.Null | ts.TypeFlags.Void)));
+		const realTypes = type.types.filter(
+			(t) => !(t.getFlags() & (ts.TypeFlags.Undefined | ts.TypeFlags.Null | ts.TypeFlags.Void)),
+		);
 
 		// Literal enums
-		const literals = realTypes.filter(t => t.isStringLiteral() || t.isNumberLiteral());
+		const literals = realTypes.filter((t) => t.isStringLiteral() || t.isNumberLiteral());
 		if (literals.length === realTypes.length && literals.length > 0) {
 			return {
 				type: literals[0].isStringLiteral() ? "string" : "number",
-				enum: literals.map(t => t.isStringLiteral() ? t.value : (t as ts.NumberLiteralType).value),
+				enum: literals.map((t) =>
+					t.isStringLiteral() ? t.value : (t as ts.NumberLiteralType).value,
+				),
 			};
 		}
 
@@ -125,9 +146,9 @@ function summarizeType(type: ts.Type, checker: ts.TypeChecker): SimpleSchema {
 		if (names.length === 0) return { type: "any" };
 		if (names.length === 1 && names[0] === "object") {
 			// Union of objects — get common props
-			const props = type.getProperties().filter(p => !p.getName().startsWith("_"));
+			const props = type.getProperties().filter((p) => !p.getName().startsWith("_"));
 			if (props.length > 0) {
-				const propNames = props.map(p => p.getName()).join(", ");
+				const propNames = props.map((p) => p.getName()).join(", ");
 				return { type: "object", description: `Props: ${propNames}` };
 			}
 		}
@@ -138,16 +159,23 @@ function summarizeType(type: ts.Type, checker: ts.TypeChecker): SimpleSchema {
 	if (type.getCallSignatures().length > 0) return { type: "function" };
 
 	// Object with properties — list prop names in description
-	const properties = type.getProperties().filter(p => !p.getName().startsWith("_") && !p.getName().startsWith("$"));
+	const properties = type
+		.getProperties()
+		.filter((p) => !p.getName().startsWith("_") && !p.getName().startsWith("$"));
 	if (properties.length > 0) {
-		const propNames = properties.map(p => p.getName()).join(", ");
+		const propNames = properties.map((p) => p.getName()).join(", ");
 		return { type: "object", description: `Props: ${propNames}` };
 	}
 
 	return { type: "object" };
 }
 
-function typeToSchema(type: ts.Type, checker: ts.TypeChecker, depth: number, seen: Set<number>): SimpleSchema {
+function typeToSchema(
+	type: ts.Type,
+	checker: ts.TypeChecker,
+	depth: number,
+	seen: Set<number>,
+): SimpleSchema {
 	const typeId = (type as any).id ?? 0;
 
 	// Prevent infinite recursion
@@ -164,15 +192,17 @@ function typeToSchema(type: ts.Type, checker: ts.TypeChecker, depth: number, see
 	// Handle union types
 	if (type.isUnion()) {
 		// Filter out null/undefined from union
-		const realTypes = type.types.filter(t => !((t.getFlags()) & (ts.TypeFlags.Undefined | ts.TypeFlags.Null | ts.TypeFlags.Void)));
+		const realTypes = type.types.filter(
+			(t) => !(t.getFlags() & (ts.TypeFlags.Undefined | ts.TypeFlags.Null | ts.TypeFlags.Void)),
+		);
 
 		// Check if it's a string/number literal union (enum-like)
-		const literals = realTypes.filter(t => t.isStringLiteral() || t.isNumberLiteral());
+		const literals = realTypes.filter((t) => t.isStringLiteral() || t.isNumberLiteral());
 		if (literals.length === realTypes.length && literals.length > 0) {
 			return {
 				type: literals[0].isStringLiteral() ? "string" : "number",
-				enum: literals.map(t =>
-					t.isStringLiteral() ? t.value : (t as ts.NumberLiteralType).value
+				enum: literals.map((t) =>
+					t.isStringLiteral() ? t.value : (t as ts.NumberLiteralType).value,
 				),
 			};
 		}
@@ -180,7 +210,12 @@ function typeToSchema(type: ts.Type, checker: ts.TypeChecker, depth: number, see
 		// If the union has common properties (e.g. PlainLegend | ScrollableLegend),
 		// treat it as an object and extract the shared properties
 		const commonProps = type.getProperties();
-		if (commonProps.length > 0 && realTypes.every(t => !isPrimitive(t) && !checker.isArrayType(t) && t.getCallSignatures().length === 0)) {
+		if (
+			commonProps.length > 0 &&
+			realTypes.every(
+				(t) => !isPrimitive(t) && !checker.isArrayType(t) && t.getCallSignatures().length === 0,
+			)
+		) {
 			const props: Record<string, SimpleSchema> = {};
 			for (const prop of commonProps) {
 				const name = prop.getName();
@@ -188,7 +223,10 @@ function typeToSchema(type: ts.Type, checker: ts.TypeChecker, depth: number, see
 				const propType = checker.getTypeOfSymbol(prop);
 				props[name] = typeToSchema(propType, checker, depth + 1, new Set(seen));
 				const jsdoc = ts.displayPartsToString(prop.getDocumentationComment(checker));
-				if (jsdoc) { const existing = props[name].description; props[name].description = existing ? `${jsdoc}. ${existing}` : jsdoc; }
+				if (jsdoc) {
+					const existing = props[name].description;
+					props[name].description = existing ? `${jsdoc}. ${existing}` : jsdoc;
+				}
 			}
 			return { type: "object", properties: props };
 		}
@@ -250,7 +288,10 @@ function typeToSchema(type: ts.Type, checker: ts.TypeChecker, depth: number, see
 			props[name] = typeToSchema(propType, checker, depth + 1, new Set(seen));
 
 			const jsdoc = ts.displayPartsToString(prop.getDocumentationComment(checker));
-			if (jsdoc) { const existing = props[name].description; props[name].description = existing ? `${jsdoc}. ${existing}` : jsdoc; }
+			if (jsdoc) {
+				const existing = props[name].description;
+				props[name].description = existing ? `${jsdoc}. ${existing}` : jsdoc;
+			}
 		}
 		return { type: "object", properties: props };
 	}
@@ -284,17 +325,21 @@ async function main() {
 		typeMap.set(exp.getName(), type);
 	}
 
-	async function generateSchema(name: string, typeName: string, category: "series" | "component" | "full") {
+	async function generateSchema(
+		name: string,
+		typeName: string,
+		category: "series" | "component" | "full",
+	) {
 		process.stdout.write(`  ${name}...`);
 
 		const type = typeMap.get(typeName);
 		if (!type) {
-			console.log(` NOT FOUND`);
+			console.log(" NOT FOUND");
 			return;
 		}
 
 		const symbol = checker.getSymbolAtLocation(sourceFile!)!;
-		const exportSymbol = checker.getExportsOfModule(symbol).find(s => s.getName() === typeName);
+		const exportSymbol = checker.getExportsOfModule(symbol).find((s) => s.getName() === typeName);
 		let resolvedType = type;
 		if (exportSymbol) {
 			const declarations = exportSymbol.getDeclarations();
