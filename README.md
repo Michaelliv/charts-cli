@@ -27,6 +27,7 @@ Feed it an [ECharts](https://echarts.apache.org/) JSON config, get back SVG or P
   <img src="examples/gauge.png" width="400" alt="Gauge chart">
 </p>
 <p>
+  <img src="examples/sankey.png" width="400" alt="Sankey diagram">
   <img src="examples/dark-theme.png" width="400" alt="Dark theme">
 </p>
 
