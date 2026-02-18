@@ -32,26 +32,6 @@ Feed it an [ECharts](https://echarts.apache.org/) JSON config, get back SVG or P
 
 ---
 
-## How It Works
-
-```
-┌─────────────────────────────────────────────┐
-│  Agent                                      │
-│                                             │
-│  1. charts schema bar                       │
-│     ← JSON schema for bar series options    │
-│                                             │
-│  2. Build ECharts config using the schema   │
-│                                             │
-│  3. echo '{...}' | charts render -o chart.png│
-│     ← PNG file                              │
-└─────────────────────────────────────────────┘
-```
-
-Schema tells the agent what's valid. Render turns it into an image. That's it.
-
----
-
 ## For Humans
 
 You install it. Your agent does the rest.
