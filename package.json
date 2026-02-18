@@ -4,13 +4,15 @@
   "description": "Render ECharts configurations to SVG/PNG from the command line — schema-driven, built for AI agents",
   "type": "module",
   "bin": {
-    "charts": "./src/main.ts"
+    "charts": "./dist/main.js"
   },
   "files": [
-    "src/"
+    "dist/"
   ],
   "scripts": {
-    "dev": "bun run src/main.ts",
+    "dev": "node --import tsx src/main.ts",
+    "build": "tsc && mkdir -p dist/schemas/generated && cp src/schemas/generated/*.json dist/schemas/generated/ && cp src/themes/*.json dist/themes/",
+    "prepublishOnly": "npm run build",
     "generate:schema": "bun run src/schemas/generate.ts",
     "lint": "biome check src/",
     "format": "biome format --write src/"

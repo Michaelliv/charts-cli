@@ -1,3 +1,4 @@
+import { existsSync, readFileSync } from "node:fs";
 import type { Command } from "commander";
 import { error, writeSVG } from "../output.js";
 import { renderToSVG } from "../render.js";
@@ -18,19 +19,18 @@ export function registerRender(program: Command): void {
 				let jsonStr: string | null = null;
 
 				if (opts.config) {
-					const file = Bun.file(opts.config);
-					if (!(await file.exists())) {
+					if (!existsSync(opts.config)) {
 						error(`File not found: ${opts.config}`);
 						process.exit(1);
 					}
-					jsonStr = await file.text();
+					jsonStr = readFileSync(opts.config, "utf-8");
 				} else if (!process.stdin.isTTY) {
-					const chunks: Uint8Array[] = [];
-					for await (const chunk of Bun.stdin.stream()) {
-						chunks.push(chunk);
+					const chunks: Buffer[] = [];
+					for await (const chunk of process.stdin) {
+						chunks.push(Buffer.from(chunk));
 					}
 					if (chunks.length > 0) {
-						jsonStr = new TextDecoder().decode(Buffer.concat(chunks)).trim();
+						jsonStr = Buffer.concat(chunks).toString("utf-8").trim();
 					}
 				}
 

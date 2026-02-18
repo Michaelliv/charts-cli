@@ -1,3 +1,4 @@
+// @ts-ignore - echarts CJS/ESM interop
 import * as echarts from "echarts";
 
 const THEME_REGISTRY_KEY = "__charts_cli_registered__";

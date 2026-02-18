@@ -1,8 +1,11 @@
+import { existsSync, readFileSync } from "node:fs";
 import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 import type { Command } from "commander";
 import { error } from "../output.js";
 
-const SCHEMA_DIR = path.resolve(import.meta.dir, "../schemas/generated");
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const SCHEMA_DIR = path.resolve(__dirname, "../schemas/generated");
 
 const SERIES_TYPES = [
 	"bar",
@@ -65,13 +68,12 @@ export function registerSchema(program: Command): void {
 			}
 
 			const filePath = path.join(SCHEMA_DIR, `${name}.json`);
-			const file = Bun.file(filePath);
 
-			if (!(await file.exists())) {
+			if (!existsSync(filePath)) {
 				error(`Schema file not found: ${filePath}. Run the schema generator first.`);
 				process.exit(1);
 			}
 
-			process.stdout.write(await file.text());
+			process.stdout.write(readFileSync(filePath, "utf-8"));
 		});
 }

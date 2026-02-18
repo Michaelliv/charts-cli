@@ -40,7 +40,7 @@ You install it. Your agent does the rest.
 ### Installation
 
 ```bash
-bun add -g charts-cli
+npm install -g charts-cli
 ```
 
 ### Setup

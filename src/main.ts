@@ -1,4 +1,4 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 import { Command } from "commander";
 import { registerOnboard } from "./commands/onboard.js";
 import { registerRender } from "./commands/render.js";

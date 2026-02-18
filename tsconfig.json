@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "types": ["bun-types"],
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
     "strict": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "declaration": true,
     "outDir": "./dist",
     "rootDir": "./src"
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/schemas/generate.ts", "src/schemas/echarts-types.ts"]
 }

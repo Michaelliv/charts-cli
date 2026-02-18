@@ -1,3 +1,4 @@
+import { writeFileSync } from "node:fs";
 import { Resvg } from "@resvg/resvg-js";
 import chalk from "chalk";
 
@@ -10,7 +11,7 @@ export async function writeSVG(svg: string, outputPath?: string, format?: string
 		const pngBuffer = pngData.asPng();
 
 		if (outputPath) {
-			await Bun.write(outputPath, pngBuffer);
+			writeFileSync(outputPath, pngBuffer);
 			info(`Chart saved to ${outputPath}`);
 		} else {
 			process.stdout.write(pngBuffer);
@@ -19,7 +20,7 @@ export async function writeSVG(svg: string, outputPath?: string, format?: string
 	}
 
 	if (outputPath) {
-		await Bun.write(outputPath, svg);
+		writeFileSync(outputPath, svg);
 		info(`Chart saved to ${outputPath}`);
 	} else {
 		process.stdout.write(svg);

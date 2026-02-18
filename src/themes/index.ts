@@ -1,5 +1,6 @@
-import darkTheme from "./dark.json";
-import vintageTheme from "./vintage.json";
+import { readFileSync } from "node:fs";
+import darkTheme from "./dark.json" with { type: "json" };
+import vintageTheme from "./vintage.json" with { type: "json" };
 
 const builtInThemes: Record<string, object> = {
 	dark: darkTheme,
@@ -16,7 +17,7 @@ export async function resolveTheme(name?: string): Promise<object | undefined> {
 
 	// Custom theme file
 	try {
-		const themeData = await Bun.file(name).json();
+		const themeData = JSON.parse(readFileSync(name, "utf-8"));
 		return themeData;
 	} catch {
 		throw new Error(
