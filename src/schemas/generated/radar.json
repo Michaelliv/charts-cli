@@ -1,0 +1,214 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts radar series",
+  "description": "radar series config. Use in: { series: [{ type: \"radar\", ... }] }",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "coordinateSystem": {
+      "type": "string",
+      "description": "Not available on every series"
+    },
+    "radarIndex": {
+      "type": "number"
+    },
+    "radarId": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array"
+    },
+    "mainType": {
+      "type": "string"
+    },
+    "silent": {
+      "type": "boolean"
+    },
+    "blendMode": {
+      "type": "string"
+    },
+    "cursor": {
+      "type": "string",
+      "description": "Cursor when mouse on the elements"
+    },
+    "dataGroupId": {
+      "type": "string | number",
+      "description": "groupId of data. can be used for doing drilldown / up animation\r\nIt will be ignored if:\r\n - groupId is specified in each data\r\n - encode.itemGroupId is given."
+    },
+    "colorBy": {
+      "type": "string"
+    },
+    "legendHoverLink": {
+      "type": "boolean"
+    },
+    "progressive": {
+      "type": "number | boolean",
+      "description": "Configurations about progressive rendering"
+    },
+    "progressiveThreshold": {
+      "type": "number"
+    },
+    "progressiveChunkMode": {
+      "type": "string"
+    },
+    "hoverLayerThreshold": {
+      "type": "number"
+    },
+    "seriesLayoutBy": {
+      "type": "string",
+      "description": "When dataset is used, seriesLayoutBy specifies whether the column or the row of dataset is mapped to the series\r\nnamely, the series is \"layout\" on columns or rows"
+    },
+    "labelLine": {
+      "type": "object",
+      "description": "Props: show, showAbove, length, length2, smooth, minTurnAngle, lineStyle"
+    },
+    "labelLayout": {
+      "type": "object | function",
+      "description": "Overall label layout option in label layout stage."
+    },
+    "stateAnimation": {
+      "type": "object",
+      "description": "Animation config for state transition.. Props: duration, easing, delay"
+    },
+    "universalTransition": {
+      "type": "boolean | object",
+      "description": "If enabled universal transition cross series."
+    },
+    "selectedMap": {
+      "type": "string",
+      "description": "Map of selected data\r\nkey is name or index of data."
+    },
+    "selectedMode": {
+      "type": "boolean | string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "animation": {
+      "type": "boolean",
+      "description": "If enable animation"
+    },
+    "animationThreshold": {
+      "type": "number",
+      "description": "Disable animation when the number of elements exceeds the threshold"
+    },
+    "animationDuration": {
+      "type": "number | function",
+      "description": "Duration of initialize animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "animationEasing": {
+      "type": "string | function",
+      "description": "Easing of initialize animation"
+    },
+    "animationDelay": {
+      "type": "number | function",
+      "description": "Delay of initialize animation\r\nCan be a callback to specify duration of each element"
+    },
+    "animationDurationUpdate": {
+      "type": "number | function",
+      "description": "Delay of data update animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "animationEasingUpdate": {
+      "type": "string | function",
+      "description": "Easing of data update animation."
+    },
+    "animationDelayUpdate": {
+      "type": "number | function",
+      "description": "Delay of data update animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "color": {
+      "type": "string | object | array"
+    },
+    "colorLayer": {
+      "type": "array"
+    },
+    "emphasis": {
+      "type": "object",
+      "description": "Emphasis states. Props: lineStyle, areaStyle, label, itemStyle, focus, blurScope, disabled"
+    },
+    "select": {
+      "type": "object",
+      "description": "Select states. Props: lineStyle, areaStyle, label, itemStyle, disabled"
+    },
+    "blur": {
+      "type": "object",
+      "description": "Blur states.. Props: lineStyle, areaStyle, label, itemStyle"
+    },
+    "lineStyle": {
+      "type": "object",
+      "description": "Props: width, color, opacity, type, cap, join, dashOffset, miterLimit, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "areaStyle": {
+      "type": "object",
+      "description": "Props: color, opacity, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "label": {
+      "type": "object",
+      "description": "Props: formatter, show, position, distance, rotate, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "itemStyle": {
+      "type": "object",
+      "description": "Props: color, opacity, decal, borderRadius, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, borderColor, borderWidth, borderType, borderCap, borderJoin, borderDashOffset, borderMiterLimit"
+    },
+    "symbol": {
+      "type": "string | function",
+      "description": "type of symbol, like `cirlce`, `rect`, or custom path and image."
+    },
+    "symbolSize": {
+      "type": "number | array | function",
+      "description": "Size of symbol."
+    },
+    "symbolRotate": {
+      "type": "number | function"
+    },
+    "symbolKeepAspect": {
+      "type": "boolean"
+    },
+    "symbolOffset": {
+      "type": "string | number | array | function"
+    },
+    "datasetIndex": {
+      "type": "number"
+    },
+    "datasetId": {
+      "type": "string | number"
+    },
+    "sourceHeader": {
+      "type": "number | boolean | string"
+    },
+    "dimensions": {
+      "type": "array"
+    },
+    "encode": {
+      "type": "object",
+      "description": "Props: tooltip, label, itemName, itemId, seriesName, itemGroupId, childGroupdId"
+    },
+    "markArea": {
+      "type": "object",
+      "description": "Props: mainType, precision, data, silent, tooltip, type, id, name, z, zlevel, animation, animationThreshold, animationDuration, animationEasing, animationDelay, animationDurationUpdate, animationEasingUpdate, animationDelayUpdate, itemStyle, label, emphasis, select, blur"
+    },
+    "markLine": {
+      "type": "object",
+      "description": "Props: mainType, symbol, symbolSize, symbolRotate, symbolOffset, precision, data, silent, tooltip, type, id, name, z, zlevel, animation, animationThreshold, animationDuration, animationEasing, animationDelay, animationDurationUpdate, animationEasingUpdate, animationDelayUpdate, lineStyle, itemStyle, label, emphasis, select, blur"
+    },
+    "markPoint": {
+      "type": "object",
+      "description": "Props: mainType, precision, data, silent, tooltip, type, id, name, z, zlevel, animation, animationThreshold, animationDuration, animationEasing, animationDelay, animationDurationUpdate, animationEasingUpdate, animationDelayUpdate, symbol, symbolSize, symbolRotate, symbolKeepAspect, symbolOffset, emphasis, select, blur, itemStyle, label"
+    },
+    "tooltip": {
+      "type": "object",
+      "description": "Props: show, triggerOn, alwaysShowContent, formatter, valueFormatter, position, confine, align, verticalAlign, showDelay, hideDelay, transitionDuration, enterable, backgroundColor, borderColor, borderRadius, borderWidth, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, padding, extraCssText, textStyle, trigger"
+    }
+  }
+}

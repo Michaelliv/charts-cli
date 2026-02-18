@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts option",
+  "description": "Top-level ECharts option. Pass to: charts render --config <file>",
+  "type": "object",
+  "properties": {
+    "dataset": {
+      "type": "object | array"
+    },
+    "aria": {
+      "type": "object",
+      "description": "Props: mainType, enabled, label, decal, description, general, series, data"
+    },
+    "title": {
+      "type": "object | array"
+    },
+    "grid": {
+      "type": "object | array"
+    },
+    "radar": {
+      "type": "object | array"
+    },
+    "polar": {
+      "type": "object | array"
+    },
+    "geo": {
+      "type": "object | array"
+    },
+    "angleAxis": {
+      "type": "object | array"
+    },
+    "radiusAxis": {
+      "type": "object | array"
+    },
+    "xAxis": {
+      "type": "object | array"
+    },
+    "yAxis": {
+      "type": "object | array"
+    },
+    "singleAxis": {
+      "type": "object | array"
+    },
+    "parallel": {
+      "type": "object | array"
+    },
+    "parallelAxis": {
+      "type": "object | array"
+    },
+    "calendar": {
+      "type": "object | array"
+    },
+    "toolbox": {
+      "type": "object | array"
+    },
+    "tooltip": {
+      "type": "object | array"
+    },
+    "axisPointer": {
+      "type": "object | array"
+    },
+    "brush": {
+      "type": "object | array"
+    },
+    "timeline": {
+      "type": "object",
+      "description": "Props: mainType, backgroundColor, borderColor, borderWidth, tooltip, show, axisType, currentIndex, autoPlay, rewind, loop, playInterval, realtime, controlPosition, padding, orient, inverse, replaceMerge, lineStyle, itemStyle, checkpointStyle, controlStyle, label, emphasis, progress, data, type, id, name, z, zlevel, width, height, top, right, bottom, left, symbol, symbolSize, symbolRotate, symbolKeepAspect, symbolOffset"
+    },
+    "legend": {
+      "type": "object | array"
+    },
+    "dataZoom": {
+      "type": "object | array"
+    },
+    "visualMap": {
+      "type": "object | array"
+    },
+    "graphic": {
+      "type": "object | array"
+    },
+    "series": {
+      "type": "object | array"
+    },
+    "options": {
+      "type": "array"
+    },
+    "baseOption": {
+      "type": "object",
+      "description": "Props: dataset, aria, title, grid, radar, polar, geo, angleAxis, radiusAxis, xAxis, yAxis, singleAxis, parallel, parallelAxis, calendar, toolbox, tooltip, axisPointer, brush, timeline, legend, dataZoom, visualMap, graphic, series, options, baseOption, media, backgroundColor, darkMode, textStyle, useUTC, stateAnimation, animation, animationThreshold, animationDuration, animationEasing, animationDelay, animationDurationUpdate, animationEasingUpdate, animationDelayUpdate, color, colorLayer"
+    },
+    "media": {
+      "type": "array"
+    },
+    "backgroundColor": {
+      "type": "string | object"
+    },
+    "darkMode": {
+      "type": "boolean | string"
+    },
+    "textStyle": {
+      "type": "object",
+      "description": "Props: fontSize, color, fontStyle, fontWeight, fontFamily"
+    },
+    "useUTC": {
+      "type": "boolean"
+    },
+    "stateAnimation": {
+      "type": "object",
+      "description": "Props: duration, easing, delay"
+    },
+    "animation": {
+      "type": "boolean",
+      "description": "If enable animation"
+    },
+    "animationThreshold": {
+      "type": "number",
+      "description": "Disable animation when the number of elements exceeds the threshold"
+    },
+    "animationDuration": {
+      "type": "number | function",
+      "description": "Duration of initialize animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "animationEasing": {
+      "type": "string | function",
+      "description": "Easing of initialize animation"
+    },
+    "animationDelay": {
+      "type": "number | function",
+      "description": "Delay of initialize animation\r\nCan be a callback to specify duration of each element"
+    },
+    "animationDurationUpdate": {
+      "type": "number | function",
+      "description": "Delay of data update animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "animationEasingUpdate": {
+      "type": "string | function",
+      "description": "Easing of data update animation."
+    },
+    "animationDelayUpdate": {
+      "type": "number | function",
+      "description": "Delay of data update animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "color": {
+      "type": "string | object | array"
+    },
+    "colorLayer": {
+      "type": "array"
+    }
+  }
+}

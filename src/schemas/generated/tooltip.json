@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts tooltip component",
+  "description": "tooltip component config. Use as top-level key in ECharts option.",
+  "type": "object",
+  "properties": {
+    "mainType": {
+      "type": "string"
+    },
+    "axisPointer": {
+      "type": "object",
+      "description": "Props: mainType, type, link, id, name, z, zlevel, show, animation, animationDurationUpdate, animationEasingUpdate, value, triggerOn, snap, triggerTooltip, triggerEmphasis, status, label, lineStyle, shadowStyle, handle, seriesDataIndices, axis, crossStyle"
+    },
+    "showContent": {
+      "type": "boolean",
+      "description": "If show popup content"
+    },
+    "trigger": {
+      "type": "string",
+      "description": "Trigger only works on coordinate system."
+    },
+    "displayMode": {
+      "type": "string"
+    },
+    "renderMode": {
+      "type": "string",
+      "description": "'auto': use html by default, and use non-html if `document` is not defined\r\n'html': use html for tooltip\r\n'richText': use canvas, svg, and etc. for tooltip"
+    },
+    "appendToBody": {
+      "type": "boolean"
+    },
+    "appendTo": {
+      "type": "string | function | object",
+      "description": "If append the tooltip element to another DOM element.\r\nOnly available when renderMode is html"
+    },
+    "className": {
+      "type": "string",
+      "description": "Specify the class name of tooltip element\r\nOnly available when renderMode is html"
+    },
+    "order": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "triggerOn": {
+      "type": "string",
+      "description": "When to trigger"
+    },
+    "alwaysShowContent": {
+      "type": "boolean",
+      "description": "Whether to not hide popup content automatically"
+    },
+    "formatter": {
+      "type": "string | function"
+    },
+    "valueFormatter": {
+      "type": "function",
+      "description": "Formatter of value.\r\n\r\nWill be ignored if tooltip.formatter is specified."
+    },
+    "position": {
+      "type": "array | string | function | object",
+      "description": "Absolution pixel [x, y] array. Or relative percent string [x, y] array.\r\nIf trigger is 'item'. position can be set to 'inside' / 'top' / 'left' / 'right' / 'bottom',\r\nwhich is relative to the hovered element.\r\n\r\nSupport to be a callback"
+    },
+    "confine": {
+      "type": "boolean"
+    },
+    "align": {
+      "type": "string",
+      "description": "Consider triggered from axisPointer handle, verticalAlign should be 'middle'"
+    },
+    "verticalAlign": {
+      "type": "string"
+    },
+    "showDelay": {
+      "type": "number",
+      "description": "Delay of show. milesecond."
+    },
+    "hideDelay": {
+      "type": "number",
+      "description": "Delay of hide. milesecond."
+    },
+    "transitionDuration": {
+      "type": "number"
+    },
+    "enterable": {
+      "type": "boolean",
+      "description": "Whether mouse is allowed to enter the floating layer of tooltip\r\nIf you need to interact in the tooltip like with links or buttons, it can be set as true."
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "borderRadius": {
+      "type": "number"
+    },
+    "borderWidth": {
+      "type": "number"
+    },
+    "shadowBlur": {
+      "type": "number"
+    },
+    "shadowColor": {
+      "type": "string"
+    },
+    "shadowOffsetX": {
+      "type": "number"
+    },
+    "shadowOffsetY": {
+      "type": "number"
+    },
+    "padding": {
+      "type": "number | array",
+      "description": "Padding between tooltip content and tooltip border."
+    },
+    "extraCssText": {
+      "type": "string",
+      "description": "Available when renderMode is 'html'"
+    },
+    "textStyle": {
+      "type": "object",
+      "description": "Props: align, width, height, fontSize, color, fontStyle, fontWeight, fontFamily, lineHeight, textBorderColor, textBorderWidth, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, decoration"
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    }
+  }
+}

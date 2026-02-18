@@ -1,7 +1,7 @@
 {
   "name": "charts-cli",
-  "version": "0.1.0",
-  "description": "Generate SVG/PNG charts from the command line — bar, line, pie, scatter, radar, and more",
+  "version": "0.2.0",
+  "description": "Render ECharts configurations to SVG/PNG from the command line — schema-driven, built for AI agents",
   "type": "module",
   "bin": {
     "charts": "./src/main.ts"
@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "dev": "bun run src/main.ts",
+    "generate:schema": "bun run src/schemas/generate.ts",
     "lint": "biome check src/",
     "format": "biome format --write src/"
   },
@@ -20,12 +21,12 @@
     "svg",
     "png",
     "cli",
-    "bar-chart",
-    "line-chart",
-    "pie-chart",
     "echarts",
-    "visualization",
-    "data-visualization"
+    "render",
+    "schema",
+    "agent",
+    "ai",
+    "visualization"
   ],
   "author": "miclivs",
   "license": "MIT",
@@ -41,6 +42,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "bun-types": "^1.1.34"
+    "bun-types": "^1.1.34",
+    "typescript": "^5.9.3",
+    "typescript-json-schema": "^0.67.1"
   }
 }

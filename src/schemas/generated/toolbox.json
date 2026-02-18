@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts toolbox component",
+  "description": "toolbox component config. Use as top-level key in ECharts option.",
+  "type": "object",
+  "properties": {
+    "feature": {
+      "type": "object",
+      "description": "Write all supported features in the final export option.. Props: brush, dataView, dataZoom, magicType, restore, saveAsImage"
+    },
+    "mainType": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "orient": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string | object"
+    },
+    "borderRadius": {
+      "type": "number | array"
+    },
+    "padding": {
+      "type": "number | array"
+    },
+    "itemSize": {
+      "type": "number"
+    },
+    "itemGap": {
+      "type": "number"
+    },
+    "showTitle": {
+      "type": "boolean"
+    },
+    "iconStyle": {
+      "type": "object",
+      "description": "Props: color, opacity, decal, borderRadius, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, borderColor, borderWidth, borderType, borderCap, borderJoin, borderDashOffset, borderMiterLimit"
+    },
+    "emphasis": {
+      "type": "object",
+      "description": "Props: iconStyle"
+    },
+    "textStyle": {
+      "type": "object",
+      "description": "Props: show, position, distance, rotate, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "tooltip": {
+      "type": "object",
+      "description": "Props: show, triggerOn, alwaysShowContent, formatter, valueFormatter, position, confine, align, verticalAlign, showDelay, hideDelay, transitionDuration, enterable, backgroundColor, borderColor, borderRadius, borderWidth, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, padding, extraCssText, textStyle"
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "width": {
+      "type": "string | number"
+    },
+    "height": {
+      "type": "string | number"
+    },
+    "top": {
+      "type": "string | number"
+    },
+    "right": {
+      "type": "string | number"
+    },
+    "bottom": {
+      "type": "string | number"
+    },
+    "left": {
+      "type": "string | number"
+    },
+    "borderColor": {
+      "type": "string | object"
+    },
+    "borderWidth": {
+      "type": "number"
+    },
+    "borderType": {
+      "type": "number | array | string"
+    },
+    "borderCap": {
+      "type": "string"
+    },
+    "borderJoin": {
+      "type": "string"
+    },
+    "borderDashOffset": {
+      "type": "number"
+    },
+    "borderMiterLimit": {
+      "type": "number"
+    }
+  }
+}

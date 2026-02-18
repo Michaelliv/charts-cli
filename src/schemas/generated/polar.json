@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts polar component",
+  "description": "polar component config. Use as top-level key in ECharts option.",
+  "type": "object",
+  "properties": {
+    "mainType": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "center": {
+      "type": "array"
+    },
+    "radius": {
+      "type": "string | number | array"
+    }
+  }
+}

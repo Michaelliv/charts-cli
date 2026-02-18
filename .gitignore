@@ -1,5 +1,8 @@
 node_modules/
 bun.lock
-*.svg
-*.png
 coverage/
+.nanny/
+.agents/
+.claude/
+.pi/
+.DS_Store

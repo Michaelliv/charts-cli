@@ -1,0 +1,269 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts treemap series",
+  "description": "treemap series config. Use in: { series: [{ type: \"treemap\", ... }] }",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "size": {
+      "type": "array",
+      "description": "configuration in echarts2"
+    },
+    "sort": {
+      "type": "boolean | string",
+      "description": "If sort in desc order.\r\nDefault to be desc. asc has strange effect"
+    },
+    "clipWindow": {
+      "type": "string",
+      "description": "Size of clipped window when zooming. 'origin' or 'fullscreen'"
+    },
+    "squareRatio": {
+      "type": "number"
+    },
+    "leafDepth": {
+      "type": "number",
+      "description": "Nodes on depth from root are regarded as leaves.\r\nCount from zero (zero represents only view root)."
+    },
+    "drillDownIcon": {
+      "type": "string"
+    },
+    "zoomToNodeRatio": {
+      "type": "number",
+      "description": "Be effective when using zoomToNode. Specify the proportion of the\r\ntarget node area in the view area."
+    },
+    "nodeClick": {
+      "type": "boolean | string",
+      "description": "Leaf node click behaviour: 'zoomToNode', 'link', false.\r\nIf leafDepth is set and clicking a node which has children but\r\nbe on left depth, the behaviour would be changing root. Otherwise\r\nuse behaviour defined above."
+    },
+    "breadcrumb": {
+      "type": "object",
+      "description": "Props: width, height, top, right, bottom, left, show, emptyItemWidth, itemStyle, emphasis"
+    },
+    "levels": {
+      "type": "array"
+    },
+    "data": {
+      "type": "array"
+    },
+    "mainType": {
+      "type": "string"
+    },
+    "silent": {
+      "type": "boolean"
+    },
+    "blendMode": {
+      "type": "string"
+    },
+    "cursor": {
+      "type": "string",
+      "description": "Cursor when mouse on the elements"
+    },
+    "dataGroupId": {
+      "type": "string | number",
+      "description": "groupId of data. can be used for doing drilldown / up animation\r\nIt will be ignored if:\r\n - groupId is specified in each data\r\n - encode.itemGroupId is given."
+    },
+    "colorBy": {
+      "type": "string"
+    },
+    "legendHoverLink": {
+      "type": "boolean"
+    },
+    "progressive": {
+      "type": "number | boolean",
+      "description": "Configurations about progressive rendering"
+    },
+    "progressiveThreshold": {
+      "type": "number"
+    },
+    "progressiveChunkMode": {
+      "type": "string"
+    },
+    "coordinateSystem": {
+      "type": "string",
+      "description": "Not available on every series"
+    },
+    "hoverLayerThreshold": {
+      "type": "number"
+    },
+    "seriesLayoutBy": {
+      "type": "string",
+      "description": "When dataset is used, seriesLayoutBy specifies whether the column or the row of dataset is mapped to the series\r\nnamely, the series is \"layout\" on columns or rows"
+    },
+    "labelLine": {
+      "type": "object",
+      "description": "Props: show, showAbove, length, length2, smooth, minTurnAngle, lineStyle"
+    },
+    "labelLayout": {
+      "type": "object | function",
+      "description": "Overall label layout option in label layout stage."
+    },
+    "stateAnimation": {
+      "type": "object",
+      "description": "Animation config for state transition.. Props: duration, easing, delay"
+    },
+    "universalTransition": {
+      "type": "boolean | object",
+      "description": "If enabled universal transition cross series."
+    },
+    "selectedMap": {
+      "type": "string",
+      "description": "Map of selected data\r\nkey is name or index of data."
+    },
+    "selectedMode": {
+      "type": "boolean | string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "animation": {
+      "type": "boolean",
+      "description": "If enable animation"
+    },
+    "animationThreshold": {
+      "type": "number",
+      "description": "Disable animation when the number of elements exceeds the threshold"
+    },
+    "animationDuration": {
+      "type": "number | function",
+      "description": "Duration of initialize animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "animationEasing": {
+      "type": "string | function",
+      "description": "Easing of initialize animation"
+    },
+    "animationDelay": {
+      "type": "number | function",
+      "description": "Delay of initialize animation\r\nCan be a callback to specify duration of each element"
+    },
+    "animationDurationUpdate": {
+      "type": "number | function",
+      "description": "Delay of data update animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "animationEasingUpdate": {
+      "type": "string | function",
+      "description": "Easing of data update animation."
+    },
+    "animationDelayUpdate": {
+      "type": "number | function",
+      "description": "Delay of data update animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "color": {
+      "type": "string | object | array"
+    },
+    "colorLayer": {
+      "type": "array"
+    },
+    "emphasis": {
+      "type": "object",
+      "description": "Emphasis states. Props: itemStyle, label, upperLabel, focus, blurScope, disabled"
+    },
+    "select": {
+      "type": "object",
+      "description": "Select states. Props: itemStyle, label, upperLabel, disabled"
+    },
+    "blur": {
+      "type": "object",
+      "description": "Blur states.. Props: itemStyle, label, upperLabel"
+    },
+    "itemStyle": {
+      "type": "object",
+      "description": "Props: borderRadius, colorAlpha, colorSaturation, borderColorSaturation, gapWidth, color, opacity, decal, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, borderColor, borderWidth, borderType, borderCap, borderJoin, borderDashOffset, borderMiterLimit"
+    },
+    "label": {
+      "type": "object",
+      "description": "Props: formatter, show, position, distance, rotate, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "upperLabel": {
+      "type": "object",
+      "description": "Props: formatter, show, position, distance, rotate, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "width": {
+      "type": "string | number"
+    },
+    "height": {
+      "type": "string | number"
+    },
+    "top": {
+      "type": "string | number"
+    },
+    "right": {
+      "type": "string | number"
+    },
+    "bottom": {
+      "type": "string | number"
+    },
+    "left": {
+      "type": "string | number"
+    },
+    "roam": {
+      "type": "boolean | string",
+      "description": "If enable roam. can be specified 'scale' or 'move'"
+    },
+    "center": {
+      "type": "array",
+      "description": "Current center position."
+    },
+    "zoom": {
+      "type": "number",
+      "description": "Current zoom level. Default is 1"
+    },
+    "scaleLimit": {
+      "type": "object",
+      "description": "Props: min, max"
+    },
+    "visualDimension": {
+      "type": "string | number",
+      "description": "Which dimension will be applied with the visual properties."
+    },
+    "colorMappingBy": {
+      "type": "string"
+    },
+    "visualMin": {
+      "type": "number"
+    },
+    "visualMax": {
+      "type": "number"
+    },
+    "colorAlpha": {
+      "type": "string"
+    },
+    "colorSaturation": {
+      "type": "string"
+    },
+    "visibleMin": {
+      "type": "number",
+      "description": "A node will not be shown when its area size is smaller than this value (unit: px square)."
+    },
+    "childrenVisibleMin": {
+      "type": "number",
+      "description": "Children will not be shown when area size of a node is smaller than this value (unit: px square)."
+    },
+    "markArea": {
+      "type": "object",
+      "description": "Props: mainType, precision, data, silent, tooltip, type, id, name, z, zlevel, animation, animationThreshold, animationDuration, animationEasing, animationDelay, animationDurationUpdate, animationEasingUpdate, animationDelayUpdate, itemStyle, label, emphasis, select, blur"
+    },
+    "markLine": {
+      "type": "object",
+      "description": "Props: mainType, symbol, symbolSize, symbolRotate, symbolOffset, precision, data, silent, tooltip, type, id, name, z, zlevel, animation, animationThreshold, animationDuration, animationEasing, animationDelay, animationDurationUpdate, animationEasingUpdate, animationDelayUpdate, lineStyle, itemStyle, label, emphasis, select, blur"
+    },
+    "markPoint": {
+      "type": "object",
+      "description": "Props: mainType, precision, data, silent, tooltip, type, id, name, z, zlevel, animation, animationThreshold, animationDuration, animationEasing, animationDelay, animationDurationUpdate, animationEasingUpdate, animationDelayUpdate, symbol, symbolSize, symbolRotate, symbolKeepAspect, symbolOffset, emphasis, select, blur, itemStyle, label"
+    },
+    "tooltip": {
+      "type": "object",
+      "description": "Props: show, triggerOn, alwaysShowContent, formatter, valueFormatter, position, confine, align, verticalAlign, showDelay, hideDelay, transitionDuration, enterable, backgroundColor, borderColor, borderRadius, borderWidth, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, padding, extraCssText, textStyle, trigger"
+    }
+  }
+}

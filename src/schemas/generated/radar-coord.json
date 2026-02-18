@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts radar-coord component",
+  "description": "radar-coord component config. Use as top-level key in ECharts option.",
+  "type": "object",
+  "properties": {
+    "mainType": {
+      "type": "string"
+    },
+    "startAngle": {
+      "type": "number"
+    },
+    "shape": {
+      "type": "string"
+    },
+    "axisLine": {
+      "type": "object",
+      "description": "Props: show, onZero, onZeroAxisIndex, symbol, symbolSize, symbolOffset, lineStyle"
+    },
+    "axisTick": {
+      "type": "object",
+      "description": "Props: show, inside, length, lineStyle, customValues"
+    },
+    "axisLabel": {
+      "type": "object",
+      "description": "Props: show, inside, rotate, showMinLabel, showMaxLabel, alignMinLabel, alignMaxLabel, verticalAlignMinLabel, verticalAlignMaxLabel, margin, rich, hideOverlap, customValues, color, overflow, align, verticalAlign, width, height, fontSize, fontStyle, fontWeight, fontFamily, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "splitLine": {
+      "type": "object",
+      "description": "Props: show, interval, showMinLine, showMaxLine, lineStyle"
+    },
+    "splitArea": {
+      "type": "object",
+      "description": "Props: show, interval, areaStyle"
+    },
+    "axisName": {
+      "type": "object",
+      "description": "Props: show, formatter, position, distance, rotate, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "axisNameGap": {
+      "type": "number"
+    },
+    "triggerEvent": {
+      "type": "boolean"
+    },
+    "scale": {
+      "type": "boolean"
+    },
+    "splitNumber": {
+      "type": "number"
+    },
+    "boundaryGap": {
+      "type": "boolean | object"
+    },
+    "indicator": {
+      "type": "array"
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "center": {
+      "type": "array"
+    },
+    "radius": {
+      "type": "string | number | array"
+    }
+  }
+}

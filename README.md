@@ -1,150 +1,166 @@
-# charts-cli
+# charts-cli 📊
 
-Generate SVG/PNG charts from the command line. No browser needed.
+[![CI](https://img.shields.io/github/actions/workflow/status/Michaelliv/charts-cli/ci.yml?label=CI&color=brightgreen)](https://github.com/Michaelliv/charts-cli/actions/workflows/ci.yml) [![License](https://img.shields.io/badge/License-MIT-yellow)](https://opensource.org/licenses/MIT)
+
+**Chart generation CLI for agents.**
+
+Feed it an [ECharts](https://echarts.apache.org/) JSON config, get back SVG or PNG. No browser, no GUI, no fuss.
+
+---
+
+## Examples
+
+<p>
+  <img src="examples/bar.png" width="400" alt="Bar chart">
+  <img src="examples/line.png" width="400" alt="Line chart">
+</p>
+<p>
+  <img src="examples/pie.png" width="400" alt="Pie chart">
+  <img src="examples/scatter.png" width="400" alt="Scatter plot">
+</p>
+<p>
+  <img src="examples/radar.png" width="400" alt="Radar chart">
+  <img src="examples/heatmap.png" width="400" alt="Heatmap">
+</p>
+<p>
+  <img src="examples/funnel.png" width="400" alt="Funnel chart">
+  <img src="examples/gauge.png" width="400" alt="Gauge chart">
+</p>
+<p>
+  <img src="examples/dark-theme.png" width="400" alt="Dark theme">
+</p>
+
+---
+
+## How It Works
+
+```
+┌─────────────────────────────────────────────┐
+│  Agent                                      │
+│                                             │
+│  1. charts schema bar                       │
+│     ← JSON schema for bar series options    │
+│                                             │
+│  2. Build ECharts config using the schema   │
+│                                             │
+│  3. echo '{...}' | charts render -o chart.png│
+│     ← PNG file                              │
+└─────────────────────────────────────────────┘
+```
+
+Schema tells the agent what's valid. Render turns it into an image. That's it.
+
+---
+
+## For Humans
+
+You install it. Your agent does the rest.
+
+### Installation
 
 ```bash
 bun add -g charts-cli
 ```
 
-## Quick Start
+### Setup
 
 ```bash
-charts bar "Jan:10 Feb:20 Mar:35" -o chart.svg
-charts line "10 20 35 28 42" --smooth --area -o trend.png
-charts pie "Chrome:65 Firefox:20 Safari:15" --donut -o browsers.svg
+# Teach your agent how to use charts
+charts onboard
 ```
 
-## Charts
+This adds instructions to your `CLAUDE.md` or `AGENTS.md` file. Done.
 
-| Command | Example |
-|---------|---------|
-| `bar` | `charts bar "Jan:10 Feb:20 Mar:35"` |
-| `line` | `charts line "10 20 35" --smooth --area` |
-| `pie` | `charts pie "Chrome:65 Firefox:20" --donut` |
-| `scatter` | `charts scatter "5 12 28 15 42"` |
-| `radar` | `charts radar "Speed:80 Def:90" --fill` |
-| `funnel` | `charts funnel "Visit:100 Cart:60"` |
-| `gauge` | `charts gauge 73 --label "CPU %"` |
-| `treemap` | `charts treemap "JS:40 Go:15"` |
-| `boxplot` | `charts boxplot "2 5 7 12 20 35"` |
-| `heatmap` | `echo '[[1,2],[3,4]]' \| charts heatmap` |
-| `candlestick` | `echo '[[20,34,10,38]]' \| charts candlestick` |
-| `sankey` | `echo '[{"source":"A","target":"B","value":10}]' \| charts sankey` |
-| `grid` | `charts grid --cols 2 a.svg b.svg -o dash.svg` |
+### Themes
 
-## Data Input
+Built-in themes: `dark`, `vintage`, or pass a path to a custom JSON theme file.
 
 ```bash
-# Inline key:value pairs
-charts bar "Jan:10 Feb:20 Mar:35"
-
-# Inline numbers (auto-indexed)
-charts line "10 20 35"
-
-# CSV file
-charts bar --csv data.csv --x date --y revenue
-
-# JSON file
-charts bar --json results.json --x model --y score
-
-# Stdin
-cat data.csv | charts line --x date --y revenue
-echo '[10, 20, 35]' | charts line
+echo '{...}' | charts render --theme dark -o chart.png
 ```
 
-## Advanced Features
+---
 
-### Multi-series Grouped Bars
+## For Agents
+
+### 1. Get the Schema
 
 ```bash
-charts bar \
-  --series "2024:React:47,Vue:28,Svelte:18" \
-  --series "2025:React:42,Vue:25,Svelte:26" \
-  --title "Framework Adoption"
+# What chart types are available?
+charts schema --list
+
+# Get the schema for what you need
+charts schema bar
+charts schema xAxis
+charts schema tooltip
+charts schema              # Full EChartsOption (top-level keys)
 ```
 
-### Stacked Bars
+Available types:
+
+- **Series**: bar, line, pie, scatter, radar, funnel, gauge, treemap, boxplot, heatmap, candlestick, sankey
+- **Components**: title, tooltip, grid, xAxis, yAxis, legend, dataZoom, visualMap, toolbox, dataset, radar-coord, polar, geo
+
+### 2. Render
 
 ```bash
-charts bar \
-  --series "Critical:AWS:2,GCP:5,Azure:8" \
-  --series "High:AWS:7,GCP:12,Azure:15" \
-  --stack --labels
+# From stdin
+echo '{
+  "xAxis": { "type": "category", "data": ["Mon", "Tue", "Wed"] },
+  "yAxis": { "type": "value" },
+  "series": [{ "type": "bar", "data": [120, 200, 150] }]
+}' | charts render -o chart.png
+
+# From file
+charts render --config option.json -o chart.svg
 ```
 
-### Reference Lines
-
-```bash
-charts bar "Opus:0 Sonnet:1 Haiku:3" --ref "0:Perfect Score"
-charts line "10 25 18 30 22 35" --ref "20:Average"
-```
-
-### Value Labels
-
-```bash
-charts bar "A:10 B:20 C:30" --labels
-charts line "10 20 35" --labels --smooth
-```
-
-### Conditional Coloring
-
-```bash
-charts bar "Claude:98 GPT:91 Gemini:87 Llama:72" \
-  --color-above "89:#4ade80" \
-  --color-below "75:#f87171" \
-  --labels
-```
-
-### Grid / Small Multiples
-
-Generate charts separately, then tile them:
-
-```bash
-charts bar "A:10 B:20" -o left.svg
-charts line "10 20 30" -o right.svg
-charts grid --cols 2 --gap 20 left.svg right.svg -o dashboard.svg
-```
-
-## Output
-
-```bash
-# SVG to stdout (pipeable)
-charts bar "A:10 B:20" | pbcopy
-
-# SVG to file
-charts bar "A:10 B:20" -o chart.svg
-
-# PNG to file (auto-detected from extension)
-charts bar "A:10 B:20" -o chart.png
-
-# PNG with explicit format
-charts bar "A:10 B:20" --format png -o chart.png
-```
-
-## Common Options
-
-All commands support:
+### Render Options
 
 | Option | Description |
 |--------|-------------|
+| `--config <file>` | JSON file with ECharts option |
 | `-o, --output <file>` | Output file (default: stdout) |
-| `-t, --title <title>` | Chart title |
 | `-W, --width <n>` | Width in pixels (default: 800) |
 | `-H, --height <n>` | Height in pixels (default: 400) |
 | `--theme <name>` | `dark`, `vintage`, or path to JSON theme |
 | `--format <type>` | `svg` or `png` (auto-detected from extension) |
-| `--csv <file>` | CSV file input |
-| `--json <file>` | JSON file input |
-| `--x <column>` | Column for labels |
-| `--y <column>` | Column for values |
 
-## Claude Code Integration
+### Output
+
+- No `-o` sends SVG to stdout (pipeable)
+- `-o chart.svg` writes SVG
+- `-o chart.png` or `--format png` writes PNG
+
+---
+
+## FAQ
+
+**Q: Why not just have the agent write a Python script with matplotlib?**
+
+Because that's a whole runtime, dependencies, and 50 lines of code for a bar chart. This is one pipe.
+
+**Q: Why ECharts?**
+
+30+ chart types, deep customization, great docs, and agents already know the config format from training data. The schema command fills in the gaps.
+
+**Q: What if the agent generates invalid JSON?**
+
+ECharts is forgiving. Missing fields get defaults. The agent gets the chart (maybe not perfect) and can iterate.
+
+---
+
+## Development
 
 ```bash
-charts onboard
+bun install
+bun run src/main.ts --help
+
+# Regenerate schemas from ECharts types
+bun run generate:schema
 ```
 
-Adds charts-cli instructions to `~/.claude/CLAUDE.md` so your AI agent knows how to generate charts.
+---
 
 ## License
 

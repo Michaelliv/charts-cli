@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts title component",
+  "description": "title component config. Use as top-level key in ECharts option.",
+  "type": "object",
+  "properties": {
+    "mainType": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string",
+      "description": "Link to url"
+    },
+    "target": {
+      "type": "string"
+    },
+    "subtext": {
+      "type": "string"
+    },
+    "sublink": {
+      "type": "string"
+    },
+    "subtarget": {
+      "type": "string"
+    },
+    "textAlign": {
+      "type": "string"
+    },
+    "textVerticalAlign": {
+      "type": "string"
+    },
+    "textBaseline": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string | object"
+    },
+    "padding": {
+      "type": "number | array",
+      "description": "Padding between text and border.\r\nSupport to be a single number or an array."
+    },
+    "itemGap": {
+      "type": "number",
+      "description": "Gap between text and subtext"
+    },
+    "textStyle": {
+      "type": "object",
+      "description": "Props: show, position, distance, rotate, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "subtextStyle": {
+      "type": "object",
+      "description": "Props: show, position, distance, rotate, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "triggerEvent": {
+      "type": "boolean",
+      "description": "If trigger mouse or touch event"
+    },
+    "borderRadius": {
+      "type": "number | array",
+      "description": "Radius of background border."
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "width": {
+      "type": "string | number"
+    },
+    "height": {
+      "type": "string | number"
+    },
+    "top": {
+      "type": "string | number"
+    },
+    "right": {
+      "type": "string | number"
+    },
+    "bottom": {
+      "type": "string | number"
+    },
+    "left": {
+      "type": "string | number"
+    },
+    "borderColor": {
+      "type": "string | object"
+    },
+    "borderWidth": {
+      "type": "number"
+    },
+    "borderType": {
+      "type": "number | array | string"
+    },
+    "borderCap": {
+      "type": "string"
+    },
+    "borderJoin": {
+      "type": "string"
+    },
+    "borderDashOffset": {
+      "type": "number"
+    },
+    "borderMiterLimit": {
+      "type": "number"
+    }
+  }
+}

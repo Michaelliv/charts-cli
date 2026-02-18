@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts visualMap component",
+  "description": "visualMap component config. Use as top-level key in ECharts option.",
+  "type": "object",
+  "properties": {
+    "align": {
+      "type": "string"
+    },
+    "hoverLink": {
+      "type": "boolean",
+      "description": "Whether to enable hover highlight."
+    },
+    "mainType": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "realtime": {
+      "type": "boolean"
+    },
+    "seriesIndex": {
+      "type": "number | array | string",
+      "description": "'all' or null/undefined: all series.\r\nA number or an array of number: the specified series.\r\nset min: 0, max: 200, only for campatible with ec2.\r\nIn fact min max should not have default value."
+    },
+    "min": {
+      "type": "number",
+      "description": "min value, must specified if pieces is not specified."
+    },
+    "max": {
+      "type": "number",
+      "description": "max value, must specified if pieces is not specified."
+    },
+    "dimension": {
+      "type": "number",
+      "description": "Dimension to be encoded"
+    },
+    "inRange": {
+      "type": "object",
+      "description": "Visual configuration for the data in selection. Props: symbol, color, opacity, decal, symbolSize, colorAlpha, colorLightness, colorSaturation, colorHue, liftZ"
+    },
+    "outOfRange": {
+      "type": "object",
+      "description": "Visual configuration for the out of selection. Props: symbol, color, opacity, decal, symbolSize, colorAlpha, colorLightness, colorSaturation, colorHue, liftZ"
+    },
+    "controller": {
+      "type": "object",
+      "description": "Props: inRange, outOfRange"
+    },
+    "target": {
+      "type": "object",
+      "description": "Props: inRange, outOfRange"
+    },
+    "itemWidth": {
+      "type": "number",
+      "description": "Width of the display item\nWhen put the controller vertically, it is the length of\r\nhorizontal side of each item. Otherwise, vertical side.\r\nWhen put the controller vertically, it is the length of\r\nvertical side of each item. Otherwise, horizontal side."
+    },
+    "itemHeight": {
+      "type": "number",
+      "description": "Height of the display item"
+    },
+    "inverse": {
+      "type": "boolean"
+    },
+    "orient": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string | object"
+    },
+    "contentColor": {
+      "type": "string | object"
+    },
+    "inactiveColor": {
+      "type": "string | object"
+    },
+    "padding": {
+      "type": "number | array",
+      "description": "Padding of the component. Can be an array similar to CSS"
+    },
+    "textGap": {
+      "type": "number",
+      "description": "Gap between text and item"
+    },
+    "precision": {
+      "type": "number"
+    },
+    "color": {
+      "type": "array"
+    },
+    "formatter": {
+      "type": "string | function"
+    },
+    "text": {
+      "type": "array",
+      "description": "Text on the both end. Such as ['High', 'Low']"
+    },
+    "textStyle": {
+      "type": "object",
+      "description": "Props: show, position, distance, rotate, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "categories": {
+      "type": "object",
+      "description": "category names, like: ['some1', 'some2', 'some3'].\r\nAttr min/max are ignored when categories set. See \"Order Rule\""
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "width": {
+      "type": "string | number"
+    },
+    "height": {
+      "type": "string | number"
+    },
+    "top": {
+      "type": "string | number"
+    },
+    "right": {
+      "type": "string | number"
+    },
+    "bottom": {
+      "type": "string | number"
+    },
+    "left": {
+      "type": "string | number"
+    },
+    "borderColor": {
+      "type": "string | object"
+    },
+    "borderWidth": {
+      "type": "number"
+    },
+    "borderType": {
+      "type": "number | array | string"
+    },
+    "borderCap": {
+      "type": "string"
+    },
+    "borderJoin": {
+      "type": "string"
+    },
+    "borderDashOffset": {
+      "type": "number"
+    },
+    "borderMiterLimit": {
+      "type": "number"
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts xAxis component",
+  "description": "xAxis component config. Use as top-level key in ECharts option.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "axisLabel": {
+      "type": "object",
+      "description": "Props: show, inside, rotate, showMinLabel, showMaxLabel, alignMinLabel, alignMaxLabel, verticalAlignMinLabel, verticalAlignMaxLabel, margin, rich, hideOverlap, customValues, color, overflow, align, verticalAlign, width, height, fontSize, fontStyle, fontWeight, fontFamily, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "inverse": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "nameLocation": {
+      "type": "string"
+    },
+    "nameRotate": {
+      "type": "number"
+    },
+    "nameTruncate": {
+      "type": "object",
+      "description": "Props: maxWidth, ellipsis, placeholder"
+    },
+    "nameTextStyle": {
+      "type": "object",
+      "description": "Props: rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "nameGap": {
+      "type": "number"
+    },
+    "silent": {
+      "type": "boolean"
+    },
+    "triggerEvent": {
+      "type": "boolean"
+    },
+    "tooltip": {
+      "type": "object",
+      "description": "Props: show"
+    },
+    "axisPointer": {
+      "type": "object",
+      "description": "Props: show, z, zlevel, triggerOn, type, snap, triggerTooltip, triggerEmphasis, value, status, label, animation, animationDurationUpdate, animationEasingUpdate, lineStyle, shadowStyle, handle, seriesDataIndices"
+    },
+    "axisLine": {
+      "type": "object",
+      "description": "Props: show, onZero, onZeroAxisIndex, symbol, symbolSize, symbolOffset, lineStyle"
+    },
+    "axisTick": {
+      "type": "object",
+      "description": "Props: show, inside, length, lineStyle, customValues"
+    },
+    "minorTick": {
+      "type": "object",
+      "description": "Props: show, splitNumber, length, lineStyle"
+    },
+    "splitLine": {
+      "type": "object",
+      "description": "Props: show, interval, showMinLine, showMaxLine, lineStyle"
+    },
+    "minorSplitLine": {
+      "type": "object",
+      "description": "Props: show, lineStyle"
+    },
+    "splitArea": {
+      "type": "object",
+      "description": "Props: show, interval, areaStyle"
+    },
+    "min": {
+      "type": "string | number | object | function",
+      "description": "Min value of the axis. can be:\r\n+ ScaleDataValue\r\n+ 'dataMin': use the min value in data.\r\n+ null/undefined: auto decide min value (consider pretty look and boundaryGap)."
+    },
+    "max": {
+      "type": "string | number | object | function",
+      "description": "Max value of the axis. can be:\r\n+ ScaleDataValue\r\n+ 'dataMax': use the max value in data.\r\n+ null/undefined: auto decide max value (consider pretty look and boundaryGap)."
+    },
+    "startValue": {
+      "type": "number"
+    },
+    "mainType": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "animation": {
+      "type": "boolean",
+      "description": "If enable animation"
+    },
+    "animationThreshold": {
+      "type": "number",
+      "description": "Disable animation when the number of elements exceeds the threshold"
+    },
+    "animationDuration": {
+      "type": "number | function",
+      "description": "Duration of initialize animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "animationEasing": {
+      "type": "string | function",
+      "description": "Easing of initialize animation"
+    },
+    "animationDelay": {
+      "type": "number | function",
+      "description": "Delay of initialize animation\r\nCan be a callback to specify duration of each element"
+    },
+    "animationDurationUpdate": {
+      "type": "number | function",
+      "description": "Delay of data update animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "animationEasingUpdate": {
+      "type": "string | function",
+      "description": "Easing of data update animation."
+    },
+    "animationDelayUpdate": {
+      "type": "number | function",
+      "description": "Delay of data update animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "gridIndex": {
+      "type": "number"
+    },
+    "gridId": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "offset": {
+      "type": "number"
+    },
+    "categorySortInfo": {
+      "type": "object",
+      "description": "Props: ordinalNumbers"
+    }
+  }
+}

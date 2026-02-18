@@ -1,0 +1,253 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts pie series",
+  "description": "pie series config. Use in: { series: [{ type: \"pie\", ... }] }",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "roseType": {
+      "type": "string"
+    },
+    "center": {
+      "type": "string | number | array"
+    },
+    "clockwise": {
+      "type": "boolean"
+    },
+    "startAngle": {
+      "type": "number"
+    },
+    "endAngle": {
+      "type": "number | string"
+    },
+    "padAngle": {
+      "type": "number"
+    },
+    "minAngle": {
+      "type": "number"
+    },
+    "minShowLabelAngle": {
+      "type": "number"
+    },
+    "selectedOffset": {
+      "type": "number"
+    },
+    "avoidLabelOverlap": {
+      "type": "boolean"
+    },
+    "percentPrecision": {
+      "type": "number"
+    },
+    "stillShowZeroSum": {
+      "type": "boolean"
+    },
+    "animationType": {
+      "type": "string"
+    },
+    "animationTypeUpdate": {
+      "type": "string"
+    },
+    "showEmptyCircle": {
+      "type": "boolean"
+    },
+    "emptyCircleStyle": {
+      "type": "object",
+      "description": "Props: borderRadius, color, opacity, decal, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, borderColor, borderWidth, borderType, borderCap, borderJoin, borderDashOffset, borderMiterLimit"
+    },
+    "data": {
+      "type": "array"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "emphasis": {
+      "type": "object",
+      "description": "Emphasis states. Props: itemStyle, label, labelLine, focus, scale, scaleSize, blurScope, disabled"
+    },
+    "coordinateSystem": {
+      "type": "string",
+      "description": "Not available on every series"
+    },
+    "select": {
+      "type": "object",
+      "description": "Select states. Props: itemStyle, label, labelLine, disabled"
+    },
+    "blur": {
+      "type": "object",
+      "description": "Blur states.. Props: itemStyle, label, labelLine"
+    },
+    "silent": {
+      "type": "boolean"
+    },
+    "color": {
+      "type": "string | object | array"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "mainType": {
+      "type": "string"
+    },
+    "blendMode": {
+      "type": "string"
+    },
+    "cursor": {
+      "type": "string",
+      "description": "Cursor when mouse on the elements"
+    },
+    "dataGroupId": {
+      "type": "string | number",
+      "description": "groupId of data. can be used for doing drilldown / up animation\r\nIt will be ignored if:\r\n - groupId is specified in each data\r\n - encode.itemGroupId is given."
+    },
+    "colorBy": {
+      "type": "string"
+    },
+    "legendHoverLink": {
+      "type": "boolean"
+    },
+    "progressive": {
+      "type": "number | boolean",
+      "description": "Configurations about progressive rendering"
+    },
+    "progressiveThreshold": {
+      "type": "number"
+    },
+    "progressiveChunkMode": {
+      "type": "string"
+    },
+    "hoverLayerThreshold": {
+      "type": "number"
+    },
+    "seriesLayoutBy": {
+      "type": "string",
+      "description": "When dataset is used, seriesLayoutBy specifies whether the column or the row of dataset is mapped to the series\r\nnamely, the series is \"layout\" on columns or rows"
+    },
+    "labelLayout": {
+      "type": "object | function",
+      "description": "Overall label layout option in label layout stage."
+    },
+    "stateAnimation": {
+      "type": "object",
+      "description": "Animation config for state transition.. Props: duration, easing, delay"
+    },
+    "universalTransition": {
+      "type": "boolean | object",
+      "description": "If enabled universal transition cross series."
+    },
+    "selectedMap": {
+      "type": "string",
+      "description": "Map of selected data\r\nkey is name or index of data."
+    },
+    "selectedMode": {
+      "type": "boolean | string"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "animation": {
+      "type": "boolean",
+      "description": "If enable animation"
+    },
+    "animationThreshold": {
+      "type": "number",
+      "description": "Disable animation when the number of elements exceeds the threshold"
+    },
+    "animationDuration": {
+      "type": "number | function",
+      "description": "Duration of initialize animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "animationEasing": {
+      "type": "string | function",
+      "description": "Easing of initialize animation"
+    },
+    "animationDelay": {
+      "type": "number | function",
+      "description": "Delay of initialize animation\r\nCan be a callback to specify duration of each element"
+    },
+    "animationDurationUpdate": {
+      "type": "number | function",
+      "description": "Delay of data update animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "animationEasingUpdate": {
+      "type": "string | function",
+      "description": "Easing of data update animation."
+    },
+    "animationDelayUpdate": {
+      "type": "number | function",
+      "description": "Delay of data update animation.\r\nCan be a callback to specify duration of each element"
+    },
+    "colorLayer": {
+      "type": "array"
+    },
+    "itemStyle": {
+      "type": "object",
+      "description": "Props: borderRadius, color, opacity, decal, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, borderColor, borderWidth, borderType, borderCap, borderJoin, borderDashOffset, borderMiterLimit"
+    },
+    "label": {
+      "type": "object",
+      "description": "Props: rotate, alignTo, edgeDistance, margin, bleedMargin, distanceToLabelLine, position, align, verticalAlign, width, height, fontSize, formatter, show, distance, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "labelLine": {
+      "type": "object",
+      "description": "Props: maxSurfaceAngle, show, showAbove, length, length2, smooth, minTurnAngle, lineStyle"
+    },
+    "radius": {
+      "type": "string | number | array"
+    },
+    "width": {
+      "type": "string | number"
+    },
+    "height": {
+      "type": "string | number"
+    },
+    "top": {
+      "type": "string | number"
+    },
+    "right": {
+      "type": "string | number"
+    },
+    "bottom": {
+      "type": "string | number"
+    },
+    "left": {
+      "type": "string | number"
+    },
+    "datasetIndex": {
+      "type": "number"
+    },
+    "datasetId": {
+      "type": "string | number"
+    },
+    "sourceHeader": {
+      "type": "number | boolean | string"
+    },
+    "dimensions": {
+      "type": "array"
+    },
+    "encode": {
+      "type": "object",
+      "description": "Props: tooltip, label, itemName, itemId, seriesName, itemGroupId, childGroupdId"
+    },
+    "markArea": {
+      "type": "object",
+      "description": "Props: mainType, precision, data, silent, tooltip, type, id, name, z, zlevel, animation, animationThreshold, animationDuration, animationEasing, animationDelay, animationDurationUpdate, animationEasingUpdate, animationDelayUpdate, itemStyle, label, emphasis, select, blur"
+    },
+    "markLine": {
+      "type": "object",
+      "description": "Props: mainType, symbol, symbolSize, symbolRotate, symbolOffset, precision, data, silent, tooltip, type, id, name, z, zlevel, animation, animationThreshold, animationDuration, animationEasing, animationDelay, animationDurationUpdate, animationEasingUpdate, animationDelayUpdate, lineStyle, itemStyle, label, emphasis, select, blur"
+    },
+    "markPoint": {
+      "type": "object",
+      "description": "Props: mainType, precision, data, silent, tooltip, type, id, name, z, zlevel, animation, animationThreshold, animationDuration, animationEasing, animationDelay, animationDurationUpdate, animationEasingUpdate, animationDelayUpdate, symbol, symbolSize, symbolRotate, symbolKeepAspect, symbolOffset, emphasis, select, blur, itemStyle, label"
+    },
+    "tooltip": {
+      "type": "object",
+      "description": "Props: show, triggerOn, alwaysShowContent, formatter, valueFormatter, position, confine, align, verticalAlign, showDelay, hideDelay, transitionDuration, enterable, backgroundColor, borderColor, borderRadius, borderWidth, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, padding, extraCssText, textStyle, trigger"
+    }
+  }
+}

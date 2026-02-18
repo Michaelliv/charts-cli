@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts grid component",
+  "description": "grid component config. Use as top-level key in ECharts option.",
+  "type": "object",
+  "properties": {
+    "mainType": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "containLabel": {
+      "type": "boolean"
+    },
+    "backgroundColor": {
+      "type": "string | object"
+    },
+    "borderWidth": {
+      "type": "number"
+    },
+    "borderColor": {
+      "type": "string | object"
+    },
+    "tooltip": {
+      "type": "object"
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "width": {
+      "type": "string | number"
+    },
+    "height": {
+      "type": "string | number"
+    },
+    "top": {
+      "type": "string | number"
+    },
+    "right": {
+      "type": "string | number"
+    },
+    "bottom": {
+      "type": "string | number"
+    },
+    "left": {
+      "type": "string | number"
+    },
+    "shadowBlur": {
+      "type": "number"
+    },
+    "shadowColor": {
+      "type": "string"
+    },
+    "shadowOffsetX": {
+      "type": "number"
+    },
+    "shadowOffsetY": {
+      "type": "number"
+    }
+  }
+}

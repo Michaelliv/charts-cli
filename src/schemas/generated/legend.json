@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts legend component",
+  "description": "legend component config. Use as top-level key in ECharts option.",
+  "type": "object",
+  "properties": {
+    "mainType": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "orient": {
+      "type": "string"
+    },
+    "align": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "borderRadius": {
+      "type": "number | array",
+      "description": "Border radius of background rect"
+    },
+    "padding": {
+      "type": "number | array",
+      "description": "Padding between legend item and border.\r\nSupport to be a single number or an array."
+    },
+    "itemGap": {
+      "type": "number",
+      "description": "Gap between each legend item."
+    },
+    "itemWidth": {
+      "type": "number",
+      "description": "Width of legend symbol"
+    },
+    "itemHeight": {
+      "type": "number",
+      "description": "Height of legend symbol"
+    },
+    "selectedMode": {
+      "type": "boolean | string"
+    },
+    "selected": {
+      "type": "object",
+      "description": "selected map of each item. Default to be selected if item is not in the map"
+    },
+    "selector": {
+      "type": "boolean | array",
+      "description": "Buttons for all select or inverse select."
+    },
+    "selectorLabel": {
+      "type": "object",
+      "description": "Props: show, position, distance, rotate, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "emphasis": {
+      "type": "object",
+      "description": "Props: selectorLabel"
+    },
+    "selectorPosition": {
+      "type": "string",
+      "description": "Position of selector buttons."
+    },
+    "selectorItemGap": {
+      "type": "number",
+      "description": "Gap between each selector button"
+    },
+    "selectorButtonGap": {
+      "type": "number",
+      "description": "Gap between selector buttons group and legend main items."
+    },
+    "data": {
+      "type": "array"
+    },
+    "tooltip": {
+      "type": "object",
+      "description": "Tooltip option. Props: show, triggerOn, alwaysShowContent, formatter, valueFormatter, position, confine, align, verticalAlign, showDelay, hideDelay, transitionDuration, enterable, backgroundColor, borderColor, borderRadius, borderWidth, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, padding, extraCssText, textStyle"
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "z": {
+      "type": "number"
+    },
+    "zlevel": {
+      "type": "number"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Icon of the legend items."
+    },
+    "inactiveColor": {
+      "type": "string",
+      "description": "Color when legend item is not selected"
+    },
+    "inactiveBorderColor": {
+      "type": "string",
+      "description": "Border color when legend item is not selected"
+    },
+    "inactiveBorderWidth": {
+      "type": "number | string",
+      "description": "Border color when legend item is not selected"
+    },
+    "formatter": {
+      "type": "string | function",
+      "description": "Legend label formatter"
+    },
+    "itemStyle": {
+      "type": "object",
+      "description": "Props: color, opacity, decal, borderRadius, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY, borderColor, borderWidth, borderType, borderCap, borderJoin, borderDashOffset, borderMiterLimit"
+    },
+    "lineStyle": {
+      "type": "object",
+      "description": "Props: inactiveColor, inactiveWidth, width, color, opacity, type, cap, join, dashOffset, miterLimit, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "textStyle": {
+      "type": "object",
+      "description": "Props: show, position, distance, rotate, offset, minMargin, overflow, ellipsis, silent, precision, valueAnimation, rich, color, fontStyle, fontWeight, fontFamily, fontSize, align, verticalAlign, baseline, opacity, lineHeight, backgroundColor, borderColor, borderWidth, borderType, borderDashOffset, borderRadius, padding, width, height, textBorderColor, textBorderWidth, textBorderType, textBorderDashOffset, textShadowBlur, textShadowColor, textShadowOffsetX, textShadowOffsetY, tag, shadowBlur, shadowColor, shadowOffsetX, shadowOffsetY"
+    },
+    "symbolRotate": {
+      "type": "number | string"
+    },
+    "symbolKeepAspect": {
+      "type": "boolean"
+    },
+    "width": {
+      "type": "string | number"
+    },
+    "height": {
+      "type": "string | number"
+    },
+    "top": {
+      "type": "string | number"
+    },
+    "right": {
+      "type": "string | number"
+    },
+    "bottom": {
+      "type": "string | number"
+    },
+    "left": {
+      "type": "string | number"
+    },
+    "borderColor": {
+      "type": "string | object"
+    },
+    "borderWidth": {
+      "type": "number"
+    },
+    "borderType": {
+      "type": "number | array | string"
+    },
+    "borderCap": {
+      "type": "string"
+    },
+    "borderJoin": {
+      "type": "string"
+    },
+    "borderDashOffset": {
+      "type": "number"
+    },
+    "borderMiterLimit": {
+      "type": "number"
+    }
+  }
+}

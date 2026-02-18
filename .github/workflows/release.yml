@@ -31,7 +31,9 @@ jobs:
       - run: bun install
 
       - name: Smoke test
-        run: bun run src/main.ts bar "A:10 B:20 C:30" > /dev/null
+        run: |
+          echo '{"xAxis":{"type":"category","data":["A","B"]},"yAxis":{"type":"value"},"series":[{"type":"bar","data":[10,20]}]}' \
+            | bun run src/main.ts render > /dev/null
 
   release:
     needs: [lint, smoke]

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ECharts dataset component",
+  "description": "dataset component config. Use as top-level key in ECharts option.",
+  "type": "object",
+  "properties": {
+    "mainType": {
+      "type": "string"
+    },
+    "seriesLayoutBy": {
+      "type": "string"
+    },
+    "sourceHeader": {
+      "type": "number | boolean | string"
+    },
+    "source": {
+      "type": "object | array"
+    },
+    "fromDatasetIndex": {
+      "type": "number"
+    },
+    "fromDatasetId": {
+      "type": "string"
+    },
+    "transform": {
+      "type": "object | array"
+    },
+    "fromTransformResult": {
+      "type": "number"
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string | number"
+    },
+    "name": {
+      "type": "string | number"
+    },
+    "dimensions": {
+      "type": "array"
+    }
+  }
+}
