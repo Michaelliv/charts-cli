@@ -3,40 +3,10 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Command } from "commander";
 import { error } from "../output.js";
+import { COMPONENT_TYPES, SERIES_TYPES } from "../schemas/types.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SCHEMA_DIR = path.resolve(__dirname, "../schemas/generated");
-
-const SERIES_TYPES = [
-	"bar",
-	"line",
-	"pie",
-	"scatter",
-	"radar",
-	"funnel",
-	"gauge",
-	"treemap",
-	"boxplot",
-	"heatmap",
-	"candlestick",
-	"sankey",
-];
-
-const COMPONENT_TYPES = [
-	"title",
-	"tooltip",
-	"grid",
-	"xAxis",
-	"yAxis",
-	"legend",
-	"dataZoom",
-	"visualMap",
-	"toolbox",
-	"dataset",
-	"radar-coord",
-	"polar",
-	"geo",
-];
 
 const ALL_TYPES = [...SERIES_TYPES, ...COMPONENT_TYPES];
 

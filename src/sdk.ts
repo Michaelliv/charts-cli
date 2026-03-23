@@ -1,6 +1,21 @@
+import { existsSync, readFileSync } from "node:fs";
+import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 import { Resvg } from "@resvg/resvg-js";
 import { renderToSVG } from "./render.js";
+import {
+	COMPONENT_TYPES,
+	type ComponentType,
+	SERIES_TYPES,
+	type SchemaType,
+	type SeriesType,
+} from "./schemas/types.js";
 import { listThemes, resolveTheme } from "./themes/index.js";
+
+export type { SchemaType, SeriesType, ComponentType } from "./schemas/types.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const SCHEMA_DIR = path.resolve(__dirname, "schemas/generated");
 
 export interface ChartOptions {
 	/** SVG width in pixels (default: 800) */
@@ -18,6 +33,10 @@ export interface Charts {
 	toPNG(option: Record<string, unknown>, opts?: ChartOptions): Promise<Buffer>;
 	/** List built-in theme names. */
 	themes(): string[];
+	/** Get JSON schema for a chart type, component, or "full" for the complete EChartsOption. */
+	getSchema(type: SchemaType): object;
+	/** List available schema types grouped by series and components. */
+	listSchemaTypes(): { series: SeriesType[]; components: ComponentType[] };
 }
 
 async function resolveThemeOption(theme?: string | object): Promise<object | undefined> {
@@ -61,6 +80,19 @@ export function createCharts(): Charts {
 
 		themes() {
 			return listThemes();
+		},
+
+		getSchema(type) {
+			const filePath = path.join(SCHEMA_DIR, `${type}.json`);
+			if (!existsSync(filePath)) {
+				const all = [...SERIES_TYPES, ...COMPONENT_TYPES, "full"];
+				throw new Error(`Unknown schema type: "${type}". Available: ${all.join(", ")}`);
+			}
+			return JSON.parse(readFileSync(filePath, "utf-8"));
+		},
+
+		listSchemaTypes() {
+			return { series: [...SERIES_TYPES], components: [...COMPONENT_TYPES] };
 		},
 	};
 }
