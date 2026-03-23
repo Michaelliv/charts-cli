@@ -1,8 +1,12 @@
 {
   "name": "charts-cli",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Render ECharts configurations to SVG/PNG from the command line — schema-driven, built for AI agents",
   "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "bin": {
     "charts": "./dist/main.js"
   },
